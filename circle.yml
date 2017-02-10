@@ -1,0 +1,11 @@
+machine:
+  timezone:
+    Asia/Tokyo
+dependencies:
+  override:
+    - go version
+    - go get github.com/eaglesakura/prjdep
+    - prjdep restore
+test:
+  override:
+    - go test ./...
