@@ -528,6 +528,7 @@ func (se *structEncoder) encode(e *encodeState, v reflect.Value, quoted bool) {
 		if !fv.IsValid() || f.omitEmpty && isEmptyValue(fv) {
 			continue
 		}
+
 		if first {
 			first = false
 		} else {

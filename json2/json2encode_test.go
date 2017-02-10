@@ -7,16 +7,18 @@ import (
 )
 
 type Model struct {
-	Value      string
-	IntValue   int
-	FloatValue float64
-	ArrayValue []int
+	Value            string
+	NilValue         *string
+	NilValueOptional *string`json:",omitempty"`
+	IntValue         int`json:",omitempty"`
+	FloatValue       float64`json:",omitempty"`
+	ArrayValue       []int`json:",omitempty"`
 }
 
 type ModelWithStruct struct {
 	Value       string
 	WithModel   Model
-	StructArray []Model
+	StructArray []Model`json:",omitempty"`
 }
 
 func TestSimpleEncodeDecode(t *testing.T) {
