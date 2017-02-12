@@ -9,16 +9,19 @@ import (
 type Model struct {
 	Value            string
 	NilValue         *string
-	NilValueOptional *string`json:",omitempty"`
-	IntValue         int`json:",omitempty"`
-	FloatValue       float64`json:",omitempty"`
-	ArrayValue       []int`json:",omitempty"`
+	NilValueOptional *string
+	IntValue         int
+	IntRequireValue  int`json:",require"`
+	FloatValue       float64
+	ArrayValue       []int
 }
 
 type ModelWithStruct struct {
-	Value       string
-	WithModel   Model
-	StructArray []Model`json:",omitempty"`
+	Value              string
+	WithModel          Model
+	StructArray        []Model
+	StructRequireArray []Model`json:",require"`
+	Snake_case_value   int `json:",require"`
 }
 
 func TestSimpleEncodeDecode(t *testing.T) {

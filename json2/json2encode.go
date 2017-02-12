@@ -1041,7 +1041,7 @@ func typeFields(t reflect.Type) []field {
 						tag:       tagged,
 						index:     index,
 						typ:       ft,
-						omitEmpty: opts.Contains("omitempty"),
+						omitEmpty: !opts.Contains("require"),
 						quoted:    quoted,
 					}))
 					if count[f.typ] > 1 {
